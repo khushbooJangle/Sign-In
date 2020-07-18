@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/auth';
+import _default from 'antd/lib/back-top';
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(Dashboard));
+export default connect(null, mapDispatchToProps)(Dashboard);

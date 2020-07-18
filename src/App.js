@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import BaseRouter from './routes';
 
@@ -7,17 +7,18 @@ import * as actions from './store/actions/auth';
 import Main from './components/Main';
 import SignInSide from './components/SignInSide';
 import Dashboard from './components/Dashboard/Dashboard';
+import { history } from './helpers/history';
 
 function App() {
 
     return (
       <div className="App">
-        <Router>
-          <>
+        <Router history={history}>
+          <Switch>
             <Route exact path="/" component={Main} />{" "}
             <Route exact path="/employee" component={SignInSide} />{" "}
-            <Route exact path="/employee/dashboard" component={Dashboard} />{" "}
-          </>
+            <Route path="/employee/dashboard" component={Dashboard} />{" "}
+          </Switch>
         </Router>
         
       </div>

@@ -1,5 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+import { history } from '../../helpers/history'
+
 
 export const authStart = () => {
     return{
@@ -46,13 +48,15 @@ export const authLogin = (username, password) => {
             // localStorage.setItem('expirationDate' ,expirationDate);
                 localStorage.setItem('token', token);
                 // if (res.data.logged_in){
-                    dispatch(authSuccess(token));      
+                    dispatch(authSuccess(token));    
+                    history.push('/employee/dashboard')  
                 // }
                 console.log(res);
                 
         })
         .catch(err => {
             dispatch(authFail(err));
+            history.push('/employee')
             console.log(err)
         })
     }
