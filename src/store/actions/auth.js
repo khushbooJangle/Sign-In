@@ -37,7 +37,7 @@ export const logout = () => {
 export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('https://srmsp2c.herokuapp.com/rest-auth/login/' , {
+        axios.post('http://52.66.106.45/rest-auth/login/' , {
             username: username,
             password: password
         })
